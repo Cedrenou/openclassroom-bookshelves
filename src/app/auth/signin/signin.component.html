@@ -1,3 +1,26 @@
-<p>
-  signin works!
-</p>
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <h2>Connexion</h2>
+
+    <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" class="form-control" formControlName="email">
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" formControlName="password">
+      </div>
+
+      <!-- Button de submit desactiver si le formulaire est invalide -->
+      <button class="btn btn-primary" type="submit" [disabled]="signInForm.invalid">Connexion</button>
+      <p class="text-danger">{{errorMessage}}</p>
+
+    </form>
+
+  </div>
+</div>
